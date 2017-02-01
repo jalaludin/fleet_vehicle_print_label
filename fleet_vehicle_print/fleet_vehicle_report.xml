@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       <report 
+            id="fleet_vehicle_ext"
+            model="fleet.vehicle"
+            string="Fleet Vehicle Print barcode label"
+            report_type="qweb-pdf"
+            attachment_use="False"
+            file="fleet_vehicle_print"
+            name="fleet_vehicle_print.fleet_report"
+        />
+	   <record id="paperformat_fleetlable1" model="report.paperformat">
+            <field name="name">Fleet Vehicle Print barcode label papper</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">79</field>
+            <field name="page_width">157</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">3</field>
+            <field name="dpi">300</field>
+        </record>
+	<record id="fleet_vehicle_print.fleet_vehicle_ext" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="fleet_vehicle_print.paperformat_fleetlable1" />
+       </record>
+	</data>
+</openerp>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="fleet_report">
+            <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="text-center">
+                        <table class="text-center" style='width:157mm; height: 78mm;'>
+                             <tr>
+                                 <td>
+                                      <div class="text-center" style="line-height:227px;">
+                                            <t t-if="o.vin_sn is False">
+                                                <img t-att-src="'/report/barcode/?type=QR&amp;value='+o.license_plate+'%0D'+o.name+'&amp;width=160&amp;height=160'" style="padding: 0px 0px 10px 0px; width:160px;height:160px"/>
+                                           </t>
+                                           <t t-if="o.vin_sn is not False"> 
+                                                <img t-att-src="'/report/barcode/?type=QR&amp;value='+o.license_plate+'%0D'+o.name+'%0D'+o.vin_sn+'&amp;width=160&amp;height=160'" style="padding: 0px 0px 10px 0px; width:160px;height:160px"/>
+                                           </t>
+                                      </div>   
+                                      <div class="text-center" style="line-height:57px;">
+                                            <img t-att-src="'/web/binary/company_logo?db=odoopc&amp;company=1'" style="padding: 0px 0px 5px 0px; width:90px; height:26px"/>
+                                      </div>   
+                                 </td>
+                                 <td>
+                                      <div class="text-center" style="font-size: 16px; line-height:22px;">
+                                           <span t-field="o.license_plate"/>
+                                      </div>   
+                                      <div class="text-center" style="font-size: 16px; line-height:22px;">
+                                           <span t-field="o.name"/>
+                                      </div>   
+                                      <t t-if="o.vin_sn is not False"> 
+                                            <div class="text-center" style="font-size: 16px; line-height:22px;">
+                                                 <span>VIN: </span><span t-field="o.vin_sn"/>
+                                            </div>   
+                                      </t>
+                                </td>    
+                           </tr>
+                       </table>
+                    </div>   
+                </div>
+            </t>
+            </t>
+        </template>
+    </data>
+</openerp>
+
+
