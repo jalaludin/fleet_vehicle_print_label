@@ -4,7 +4,7 @@
     'category': 'Managing vehicles and contracts',
     'sequence': 110,
     'summary': "Print barcode label for fleet vehicle",
-    'description':"Print barcode label for fleet vehicle, this works for v10, v9, v8",
+    'description':"Print barcode label for fleet vehicle, this works for v10, v9, v8. You find the print button beside Action button on the top of fleet vehicle form.",
     'author': 'Stella Fredö in Sweden',
     'website': 'http://se.linkedin.com/in/stella-fredö-94401014',
     'depends': ['fleet'],
